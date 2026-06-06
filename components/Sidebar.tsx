@@ -54,16 +54,23 @@ export default function Sidebar() {
             icon: LayoutDashboard,
         },
         {
+            name: "Vehicle Types",
+            path: "/vehicle-types",
+            icon: LayoutDashboard,
+        }, {
+            name: "Live Traffic",
+            path: "/live-traffic",
+            icon: LayoutDashboard,
+        }, {
             name: "Drivers",
-            path: "/drivers",
-            icon: Car,
-        },
+            path: "/drivers-page",
+            icon: LayoutDashboard,
+        }
     ];
 
     const logout = () => {
         Cookies.remove("token");
         Cookies.remove("user");
-
         router.push("/login");
     };
 

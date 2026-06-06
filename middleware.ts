@@ -13,6 +13,7 @@ export function middleware(request: NextRequest) {
     const protectedRoutes = [
         "/dashboard",
         "/drivers",
+        "/vehicletypes",
     ];
 
     const isPublicRoute = publicRoutes.some(
@@ -38,6 +39,13 @@ export function middleware(request: NextRequest) {
     if (isPublicRoute && token) {
         return NextResponse.redirect(
             new URL("/dashboard", request.url)
+        );
+    }
+
+    // Already logged in and trying to access login page
+    if (isPublicRoute && token) {
+        return NextResponse.redirect(
+            new URL("/vehicletypes", request.url)
         );
     }
 
